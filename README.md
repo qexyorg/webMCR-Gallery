@@ -1,6 +1,3 @@
-webMCR-Gallery
-==============
-
-Gallery module for webMCR engine
-
-All information in "instructions" folder
+Installation
+- Upload all files from folder "upload" into your webmcr directory
+- Go to http://yoursite.com/?mode=gallery

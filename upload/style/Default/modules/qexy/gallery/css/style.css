@@ -1,0 +1,258 @@
+.gallery-global .menu { margin: 5px; }
+
+.gallery-global .gallery-settings .table { font-family: verdana; background: #fff; }
+.gallery-global .gallery-settings .table .name { font-weight: bold; color: #555; width: 60%; }
+.gallery-global .gallery-settings .table .desc { font-weight: normal; color: #999; font-size: 11px; }
+.gallery-global .gallery-settings .table .submits { text-align: right; }
+
+.tooltip { z-index: 1060; }
+
+.gallery-copyright { display: block; width: 54px; height: 55px; background: url("../img/copyright_icon.png") no-repeat; float: right; margin-top: 10px; }
+
+.gallery-global .gallery-list > ul.lightbox {
+	margin: 0px;
+	padding: 0px;
+}
+
+.gallery-global .gallery-list > ul.lightbox > li {
+	position: relative;
+	display: inline-block;
+	margin: 5px;
+	padding: 0px;
+}
+
+.gallery-global .gallery-list > ul.lightbox > li > a {
+	overflow: hidden;
+	width:auto;
+	max-width: 220px;
+	min-width: 220px;
+	height:auto;
+	max-height: 124px;
+	min-height: 124px;
+	line-height: 124px;
+	text-align: center;
+	background-color: #fff;
+}
+
+.gallery-global .gallery-list > ul.lightbox > li > a > img {
+	display: inline-block;
+	vertical-align: middle !important;
+	max-width: 220px;
+	max-height: 123px;
+}
+
+.lightbox .lb-img-box {
+	position: fixed;
+	background-color: rgba(0,0,0,0.8);
+	top: 0px;
+	left: 0px;
+	z-index: 1050;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	display:-webkit-box !important;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+}
+
+.lightbox .lb-img-box > .lb-img-body {
+	position: relative;
+	text-align: center;
+	background-color: #fff;
+	height: 80%;
+	width: 80%;
+	margin: auto;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	cursor: default;
+	border-radius: 4px;
+	font-family: verdana;
+	overflow: hidden;
+}
+
+.lightbox .lb-img-box > .lb-img-body > .lb-text,
+.lightbox .lb-img-box > .lb-img-body > .lb-title {
+	position: absolute;
+	top: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 2em;
+	word-wrap: break-word;
+	cursor: text;
+}
+
+.lightbox .lb-img-box > .lb-img-body > .lb-text {
+	font-size: 1em;
+	top: auto;
+	bottom: 0px;
+	padding: 10px;
+	color: #fff;
+	border-radius: 4px 4px 0px 0px;
+	background-color: rgba(0,0,0,0.4);
+	min-width: 200px;
+}
+
+.lightbox .lb-img-box > .lb-img-body > .lb-close {
+	position: absolute;
+	right: 15px;
+	top: 10px;
+	z-index: 1060;
+}
+
+.lightbox .lb-img-box > .lb-img-body > .lb-original {
+	position: absolute;
+	right: 40px;
+	top: 10px;
+	z-index: 1060;
+}
+
+.lightbox .lb-img-box > .lb-img-body > .lb-img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.lightbox .lb-img-box > .lb-img-body > .lb-control-left,
+.lightbox .lb-img-box > .lb-img-body > .lb-control-right {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 30%;
+	text-decoration: none;
+	vertical-align: middle;
+	font-size: 2em;
+	line-height: 100%;
+	color: #fff;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.lightbox .lb-img-box > .lb-img-body > .lb-control-right {
+	left: auto;
+	right: 0px;
+}
+
+.lightbox .lb-img-box > .lb-img-body > .lb-control-left:hover,
+.lightbox .lb-img-box > .lb-img-body > .lb-control-right:hover {
+	background-color: rgba(0,0,0,0.1);
+}
+
+.lightbox .lb-img-box > .lb-img-body img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.gallery-global .gallery-actions {
+	background-color: #fff;
+	margin: 5px;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: right;
+}
+
+.gallery-global .gallery-actions .input-append {
+	margin: 0px;
+	margin-left: 3px;
+}
+
+.gallery-global .gallery-list ul.albums,
+.gallery-global .gallery-list ul.albums > li {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.gallery-global .gallery-list ul.albums > li {
+	display: inline-block;
+	margin: 5px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #eee;
+	background-size: 100%;
+}
+
+.gallery-global .gallery-list ul.albums > li > a {
+	position: relative;
+	width: 348px;
+	height: 195px;
+	display: block;
+	text-decoration: none;
+	color: #eee;
+	border: 1px solid #ddd;
+	overflow: hidden;
+	font-family: verdana;
+}
+
+.gallery-global .gallery-list ul.albums > li > a > span {
+	margin-bottom: -30px;
+	position: absolute;
+	bottom: 0px;
+	background-color: rgba(0,0,0,0.3);
+	width: 100%;
+	padding: 3px 0px;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.gallery-global .gallery-list ul.albums > li > a:hover > span {
+	margin-bottom: 0px;
+}
+
+.gallery-global .gallery-list ul.albums > li > a > input[type="checkbox"],
+.gallery-global .gallery-list ul.images > li > input[type="checkbox"] {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	margin: 0px;
+	cursor: crosshair;
+	display: none;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.gallery-global .gallery-list ul.albums > li > a:hover > input[type="checkbox"],
+.gallery-global .gallery-list ul.albums > li > a > input[type="checkbox"]:checked,
+.gallery-global .gallery-list ul.images > li:hover > input[type="checkbox"],
+.gallery-global .gallery-list ul.images > li > input[type="checkbox"]:checked {
+	display: block;
+}
+
+.gallery-global .gallery-list ul.albums > li > a > span:before {
+	content: "";
+	margin-left: 10px;
+}
+
+.gallery-global .gallery-list ul.albums > li > a > span:after {
+	content: "";
+	margin-right: 5px;
+}
+
+.gallery-global .gallery-image-add img {
+	max-width: 180px;
+	display: block;
+}
+
+.gallery-global .admin-images > .table td.img > img {
+	max-width: 160px;
+	max-height: 90px;
+}
+
+.gallery-global .admin-images > .table td.info > ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.gallery-global .admin-images > .table td.info > ul > li {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	line-height: 18px;
+}

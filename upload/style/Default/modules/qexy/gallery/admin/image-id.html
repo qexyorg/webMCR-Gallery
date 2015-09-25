@@ -1,0 +1,14 @@
+<tr>
+	<td><?php echo $data['ID']; ?></td>
+	<td class="img"><img src="<?php echo $data['IMG']; ?>" alt="IMG" /></td>
+	<td class="info">
+		<ul>
+			<li><span class="muted">Категория:</span> <span><a href="<?php echo MOD_URL; ?>&cid=<?php echo $data['CID']; ?>"><?php echo $data['CATEGORY']; ?></a></span></li>
+			<li><span class="muted">Название:</span> <span class="text-success"><?php echo $data['TITLE']; ?></span></li>
+			<li><span class="muted">Тип:</span> <span><?php echo $data['PUBLIC']; ?></span></li>
+			<li><span class="muted">Добавил(а):</span> <span><?php echo $data['LOGIN']; ?></span></li>
+			<li><span class="muted">Изменено:</span> <span class="text-warning"><?php echo $data['DATE_UPDATE']; ?></span></li>
+		</ul>
+	</td>
+	<td><div class="text-right"><input type="checkbox" name="id[]" class="cb_images" value="<?php echo $data['ID']; ?>"></div></td>
+</tr>

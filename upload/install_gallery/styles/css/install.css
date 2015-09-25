@@ -1,0 +1,6 @@
+.gallery-content .gallery-install { font-family: verdana; font-size: 12px; }
+.gallery-content .gallery-install h4 { color: #555; }
+.gallery-content .gallery-install .reinst { margin: 10px; }
+.gallery-content .gallery-install .ins-submit { text-align: right; margin-top: 20px; }
+.gallery-content .gallery-install .ins-menu { width: 466px; height: 131px; border: 2px double #ccc; border-radius: 4px; background: url("../img/menu.png") no-repeat; margin: 10px; }
+.gallery-content .gallery-install .gallery-logo { width: 165px; height: 173px; background: url("../img/logo.png") no-repeat; float: right; }

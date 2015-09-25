@@ -1,0 +1,43 @@
+<div class="gallery-install">
+	<h4>Установка - Шаг 1</h4>
+	<?php echo $data['WRITE_MENU']; ?>
+	<?php echo $data['WRITE_CONFIGS']; ?>
+	<?php echo $data['WRITE_CFG']; ?>
+	<div class="gallery-settings">
+		<form method="post">
+			<table class="table table-hover table-bordered">
+
+				<tbody>
+					<tr>
+						<td class="name">Название модуля
+							<div class="desc">- Название модуля системы пользователей (Отображается в заголовке страницы и хлебных крошках)</div>
+						</td>
+						<td class="inputs"><input type="text" name="title" placeholder="Название" value="<?php echo $this->cfg['title']; ?>" required></td>
+					</tr>
+
+					<tr>
+						<td class="name">Уровень доступа к галереи
+							<div class="desc">- Минимальный уровень доступа к галереи</div>
+						</td>
+						<td class="inputs"><input type="text" name="lvl_access" placeholder="Число" value="<?php echo $this->cfg['lvl_access']; ?>" required></td>
+					</tr>
+
+					<tr>
+						<td class="name">Уровень доступа к панели управления
+							<div class="desc">- Минимальный уровень доступа к панели управления галереи</div>
+						</td>
+						<td class="inputs"><input type="text" name="lvl_admin" placeholder="Число" value="<?php echo $this->cfg['lvl_admin']; ?>" required></td>
+					</tr>
+
+					<tr>
+						<td class="submits" colspan="2">
+							<input type="submit" class="btn btn-primary" name="submit" value="Далее">
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</form>
+	</div>
+
+</div>

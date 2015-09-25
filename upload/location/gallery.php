@@ -1,42 +1,123 @@
-<?php 
-if (!defined('MCR')) exit;
+<?php
+/**
+ * Gallery module for WebMCR
+ *
+ * General proccess
+ * 
+ * @author Qexy.org (admin@qexy.org)
+ *
+ * @copyright Copyright (c) 2015 Qexy.org
+ *
+ * @version 1.1.0
+ *
+ */
 
-$page = 'Галерея'; $menu->SetItemActive('qx_gallery');
+// Check webmcr constant
+if (!defined('MCR')){ exit("Hacking Attempt!"); }
 
-define('QX_URL_ROOT', BASE_URL.'go/gallery/'); // Ссылка на галлерею
-define('QX_DIR_STYLE', STYLE_URL.'Default/gallery/'); // Директория со стилями
-define('QX_URL_UPLOAD', BASE_URL.'qx_upload/gallery/'); // Ссылка с изображениями
-define('QX_DIR_UPLOAD', MCR_ROOT.'qx_upload/gallery/'); // Директория с изображениями
-define('QX_DIR_THUMBS', QX_DIR_UPLOAD.'thumbs/'); // Директория с превьюшками
-define('QX_ROP', 20); // результатов на страницу
-define('QX_SIZE', 165); // максимальная ширина в пикселях для миниатюры
+define('QEXY', true);
+define('MOD_VERSION', '1.1.0');												// Module version
+define('MOD_STYLE', STYLE_URL.'Default/modules/qexy/gallery/');				// Module style folder
+define('MOD_URL', BASE_URL.'?mode=gallery');								// Base module URL
+define('MOD_STYLE_ADMIN', MOD_STYLE.'admin/');								// Module style admin folder
+define('MOD_ADMIN_URL', MOD_URL.'&do=admin');								// Base module admin url
+define('MOD_CLASS_PATH', MCR_ROOT.'instruments/modules/qexy/gallery/');		// Root module class folder
+define('MCR_URL_ROOT', 'http://'.$_SERVER['SERVER_NAME']);					// Full base url webmcr
 
-$_SESSION['num_q'] = 0;
+// Loading config
+require_once(MCR_ROOT.'configs/gallery.cfg.php');
 
-function MFA($result){		return mysql_fetch_array($result);			}
-function MNR($result){		return mysql_num_rows($result);				}
-function MRES($result){		return mysql_real_escape_string($result);	}
-function HSC($result){		return htmlspecialchars($result);			}
-function QX_QUERY($query){	$_SESSION['num_q']++; return BD($query);	}
+// Loading API
+if(!file_exists(MCR_ROOT."instruments/modules/qexy/api/api.class.php")){ exit("API not found! <a href=\"https://github.com/qexyorg/webMCR-API\" target=\"_blank\">Download</a>"); }
 
-require_once(MCR_ROOT.'instruments/gallery.class.php'); $gallery = new gallery;
+require_once(MCR_ROOT."instruments/modules/qexy/api/api.class.php");
 
-if(isset($_SESSION['qx_info'])){ define('QX_INFO', $gallery->INFO()); }else{ define('QX_INFO', ''); }
+// Set default url for module
+$api->url = "?mode=gallery";
 
-$content_js .= $gallery->gallery_js();
+// Set default style path for module
+$api->style = MOD_STYLE;
 
-if(isset($_GET['do'])){ $do = $_GET['do']; }else{ $do = 'main'; }
+// Set module cfg
+$api->cfg = $cfg;
 
-if($gallery->is_install()){ $do = 'install'; }
+// Check access user level
+if($api->user->lvl < $cfg['lvl_access']){ header('Location: '.BASE_URL.'?mode=403'); exit; }
 
-switch($do){
-	case 'image': echo $gallery->image(); exit; break;
-	case 'thumb': echo $gallery->image(true); exit; break;
-	case 'install':	$content_main = $gallery->install();	break;
+// Set active menu
+$menu->SetItemActive('qx_gallery');
 
-	default: $content_main = $gallery->main(); break;
+// Set default module page
+$do = (isset($_GET['do'])) ? $_GET['do'] : $cfg['main'];
+
+// Set installation variable
+if($cfg['install']==true){ $install = true; }
+
+// Check installation
+if(isset($install) && $do!=='install'){ $api->notify("Требуется установка", "&do=install", "Внимание!", 4); }
+
+function get_menu($api){
+
+	if($api->user->lvl < $api->cfg['lvl_admin']){ return; }
+
+	return $api->sp("admin/menu.html");
 }
 
-unset($_SESSION['num_q']);
-if(isset($_SESSION['qx_info'])){unset($_SESSION['qx_info']); unset($_SESSION['qx_info_t']);}
+// Select page
+switch($do){
+
+	// Load modules
+	case 'admin':
+	case 'main':
+	case 'my':
+	case 'albums':
+		require_once(MOD_CLASS_PATH.$do.'.class.php');
+		$module			= new module($api);
+		$mod_content	= $module->_list();
+		$mod_title		= $module->title;
+		$mod_bc			= $module->bc;
+	break;
+
+	// Load installation
+	case 'install':
+		if(!$cfg['install'] && !isset($_SESSION['step_finish'])){ $api->notify("Установка уже произведена", "", "Упс!", 4); }
+		require_once(MCR_ROOT."install_gallery/install.class.php");
+		$module			= new module($api);
+		$mod_content	= $module->_list();
+		$mod_title		= $module->title;
+		$mod_bc			= $module->bc;
+	break;
+	// Load default menu
+	default: $api->notify("Страница не найдена", "&do=".$cfg['main'], "404", 3); break;
+}
+
+// Set default page title
+$page = $cfg['title'].' — '.$mod_title;
+
+// Set data values
+$content_data = array(
+	"CONTENT"	=> $mod_content,
+	"BC"		=> $mod_bc,
+	"API_INFO"	=> $api->get_notify(),
+	"MENU"		=> get_menu($api),
+);
+
+$content_js .= '<link href="'.MOD_STYLE.'css/style.css" rel="stylesheet">';
+$content_js .= '<script src="'.MOD_STYLE.'js/content.js"></script>';
+
+// Set returned content
+$content_main = $api->sp("global.html", $content_data);
+
+/**
+ * Gallery module for WebMCR
+ *
+ * General proccess
+ * 
+ * @author Qexy.org (admin@qexy.org)
+ *
+ * @copyright Copyright (c) 2015 Qexy.org
+ *
+ * @version 1.1.0
+ *
+ */
 ?>

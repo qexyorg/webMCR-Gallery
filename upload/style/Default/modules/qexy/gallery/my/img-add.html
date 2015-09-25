@@ -1,0 +1,53 @@
+<form class="gallery-image-add form-horizontal" method="POST" enctype="multipart/form-data">
+	<input type="hidden" name="<?php echo $data['F_SECURITY']; ?>" value="<?php echo $data['F_SET']; ?>">
+	
+	<div class="control-group">
+		<label class="control-label" for="inputTitle">Название</label>
+		<div class="controls">
+			<input type="text" class="span8" name="title" id="inputTitle" value="<?php echo $data['TITLE']; ?>" placeholder="Название изображения" required>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="inputCategory">Категория</label>
+		<div class="controls">
+			<select name="cid" class="span8" id="inputCategory"><?php echo $data['CATEGORIES']; ?></select>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="inputAlbum">Альбом</label>
+		<div class="controls">
+			<select name="aid" class="span8" id="inputAlbum"><?php echo $data['ALBUMS']; ?></select>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="inputAlbum">Изображение</label>
+		<div class="controls">
+			<input type="file" name="img">
+			<?php echo $data['IMG']; ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="inputTitle">Описание</label>
+		<div class="controls">
+			<textarea name="text" class="span8" rows="5" placeholder="Описание изображения" maxlength="255"><?php echo $data['TEXT']; ?></textarea>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<label class="checkbox">
+				<input type="checkbox" rel="tooltip" value="1" title="Будет видно всем пользователям" name="public" <?php echo $data['PUBLIC']; ?>> Публичное изображение
+			</label>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<button type="submit" class="btn"><?php echo $data['BTN']; ?></button>
+		</div>
+	</div>
+</form>

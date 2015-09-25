@@ -1,0 +1,23 @@
+<form class="gallery-album-add form-horizontal" method="POST">
+	<input type="hidden" name="<?php echo $data['F_SECURITY']; ?>" value="<?php echo $data['F_SET']; ?>">
+	
+	<div class="control-group">
+		<label class="control-label" for="inputTitle">Название</label>
+		<div class="controls">
+			<input type="text" class="span8" name="title" id="inputTitle" value="<?php echo $data['TITLE']; ?>" placeholder="Название альбома" required>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="inputTitle">Описание</label>
+		<div class="controls">
+			<textarea name="text" class="span8" rows="5" placeholder="Описание альбома" maxlength="255"><?php echo $data['TEXT']; ?></textarea>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<button type="submit" class="btn"><?php echo $data['BTN']; ?></button>
+		</div>
+	</div>
+</form>

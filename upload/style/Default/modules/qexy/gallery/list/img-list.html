@@ -1,0 +1,21 @@
+<div class="gallery-list">
+	<div class="gallery-actions">
+		<div class="btn-group">
+			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Категория
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu pull-right">
+				<?php echo $data['CATEGORIES']; ?>
+			</ul>
+		</div>
+
+		<a href="<?php echo MOD_URL; ?>&do=my" class="btn">Мои изображения</a>
+		<a href="<?php echo MOD_URL; ?>&do=albums" class="btn">Мои альбомы</a>
+	</div>
+	<ul class="thumbnails lightbox" id="lightbox_main">
+		<?php echo $data['CONTENT']; ?>
+	</ul>
+</div>
+
+<?php echo $data['PAGINATION']; ?>

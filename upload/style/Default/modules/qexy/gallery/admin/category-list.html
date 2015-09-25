@@ -1,0 +1,31 @@
+<form method="POST" class="categories">
+	<input type="hidden" name="<?php echo $data['F_SECURITY']; ?>" value="<?php echo $data['F_SET']; ?>">
+	<div class="gallery-actions">
+		<div class="input-append">
+			<select name="alb_action" id="action_alb" data-url="<?php echo MOD_URL; ?>&do=admin&op=categories&act=">
+				<option value="0" disabled selected>Действие с категориями</option>
+				<option value="add" >Добавить</option>
+				<option value="edit">Редактировать</option>
+				<option value="delete">Удалить</option>
+			</select>
+			<span class="add-on"><input type="checkbox" class="cb_selector" data-select="cb_categories"></span>
+			<button class="btn submit_act" data-act="#action_alb" data-input="cb_categories" type="submit"><i class="icon-ok"></i></button>
+		</div>
+	</div>
+
+	<table class="table table-condensed table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Название</th>
+				<th><div class="text-right">Действие</div></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<?php echo $data['CATEGORIES']; ?>
+		</tbody>
+	</table>
+
+	<?php echo $data['PAGINATION']; ?>
+</form>

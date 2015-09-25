@@ -1,0 +1,23 @@
+<form class="gallery-list" method="POST">
+	<input type="hidden" name="<?php echo $data['F_SECURITY']; ?>" value="<?php echo $data['F_SET']; ?>">
+	<div class="gallery-actions">
+		<div class="input-append">
+			<select name="alb_action" id="action_alb" data-url="<?php echo MOD_URL; ?>&do=albums&op=">
+				<option value="0" disabled selected>Действие с альбомами</option>
+				<option value="add" >Добавить</option>
+				<option value="edit">Редактировать</option>
+				<option value="delete">Удалить</option>
+			</select>
+			<span class="add-on"><input type="checkbox" class="cb_selector" data-select="cb_albums"></span>
+			<button class="btn submit_act" data-act="#action_alb" data-input="cb_albums" type="submit"><i class="icon-ok"></i></button>
+		</div>
+
+		<a href="<?php echo MOD_URL; ?>&do=my" class="btn">Мои изображения</a>
+	</div>
+	
+	<ul class="albums">
+		<?php echo $data['CONTENT']; ?>
+	</ul>
+
+	<?php echo $data['PAGINATION']; ?>
+</form>

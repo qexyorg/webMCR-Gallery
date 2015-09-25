@@ -1,0 +1,51 @@
+<div class="gallery-settings">
+	<form method="post">
+		<table class="table table-hover table-bordered">
+
+			<tbody>
+				<tr>
+					<td class="name">Название
+						<div class="desc">- Название модуля системы пользователей (Отображается в заголовке страницы и хлебных крошках)</div>
+					</td>
+					<td class="inputs"><input type="text" name="title" placeholder="Название" value="<?php echo $this->cfg['title']; ?>" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Изображений на страницу
+						<div class="desc">- Кол-во выводимых изображений на одну страницу</div>
+					</td>
+					<td class="inputs"><input type="text" name="rop_images" placeholder="Число" value="<?php echo $this->cfg['rop_images']; ?>" pattern="^(\d+)$" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Альбомов на страницу
+						<div class="desc">- Кол-во выводимых альбомов на одну страницу</div>
+					</td>
+					<td class="inputs"><input type="text" name="rop_albums" placeholder="Число" value="<?php echo $this->cfg['rop_albums']; ?>" pattern="^(\d+)$" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Уровень доступа к галереи
+						<div class="desc">- Минимальный уровень доступа к галереи</div>
+					</td>
+					<td class="inputs"><input type="text" name="lvl_access" placeholder="Число" value="<?php echo $this->cfg['lvl_access']; ?>" required></td>
+				</tr>
+
+				<tr>
+					<td class="name">Уровень доступа к панели управления
+						<div class="desc">- Минимальный уровень доступа к панели управления галереей</div>
+					</td>
+					<td class="inputs"><input type="text" name="lvl_admin" placeholder="Число" value="<?php echo $this->cfg['lvl_admin']; ?>" required></td>
+				</tr>
+
+				<tr>
+					<td class="submits" colspan="2">
+						<input type="hidden" name="<?php echo $data['F_SECURITY']; ?>" value="<?php echo $data['F_SET']; ?>">
+						<input type="submit" class="btn btn-primary" name="submit" value="Сохранить">
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</form>
+</div>
